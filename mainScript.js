@@ -5,7 +5,7 @@ const tableBody = document.getElementById("tableBody")
 const modal2 = document.getElementById("modal2")
 const addBalanceContainerEdit = document.getElementById("addBalanceContainerEdit")
 const popupCloseBtnEdit = document.getElementById("popupCloseBtnEdit")
-
+const url = "https://expense-tracker-43zt.onrender.com/"
 
 const userId = localStorage.getItem("userId")
 
@@ -14,7 +14,7 @@ if(userId === null){
 }
 
 const userBalance = async () => {
-    const balance = await fetch ("http://localhost:3000/balance", {
+    const balance = await fetch (`${url}balance`, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
@@ -35,7 +35,7 @@ const userBalance = async () => {
 
 const renderTransaction = async () =>{
     tableBody.innerHTML = ""
-    const transactions = await fetch(`http://localhost:3000/renderTransaction/${userId}`)
+    const transactions = await fetch(`${url}renderTransaction/${userId}`)
     const res = await transactions.json()   
     for (let i = res.length-1; res.length-13 < i; i--){
         const row = document.createElement("tr")
@@ -72,7 +72,7 @@ const renderTransaction = async () =>{
         editBtn.appendChild(editImg)
 
         dltBtn.addEventListener("click", async() => {
-            const deleteTran = await fetch(`http://localhost:3000/deleteTransaction/${res[i]._id}/${userId}`, {
+            const deleteTran = await fetch(`${url}deleteTransaction/${res[i]._id}/${userId}`, {
                 method: "DELETE"
             })
             const dltData = await deleteTran.json() 
@@ -179,7 +179,7 @@ const renderTransaction = async () =>{
                     date = editForms.get("date")
                 }
 
-                const editTran = await fetch(`http://localhost:3000/editTransaction/${res[i]._id}/${userId}`, {
+                const editTran = await fetch(`${url}editTransaction/${res[i]._id}/${userId}`, {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
@@ -232,7 +232,7 @@ expenseForm.addEventListener("submit", async (e) => {
     const amount = String(`-${form.get("amount")}`)
     const negativeAmount = Number(amount)
 
-    const addExpense = await fetch("http://localhost:3000/expense", {
+    const addExpense = await fetch("${url}expense", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -267,7 +267,7 @@ addBalanceForm.addEventListener("submit", async (e) => {
         
     }
 
-    const addExpense = await fetch("http://localhost:3000/addBalance", {
+    const addExpense = await fetch("${url}addBalance", {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
