@@ -1,5 +1,6 @@
 const form = document.getElementById("form")
 const submitButton = document.getElementById("submitButton")
+const url = "https://expense-tracker-43zt.onrender.com/"
 
 form.addEventListener("submit", async (e)=>{
     e.preventDefault()
@@ -7,7 +8,7 @@ form.addEventListener("submit", async (e)=>{
     console.log(forms.get("username"))
     if(forms.get("password") === forms.get("cPassword")){
 
-        const register = await fetch("http://localhost:3000/register",{
+        const register = await fetch(`${url}register`,{
             
             method: "POST",
             headers: {"content-type": "application/json"},
