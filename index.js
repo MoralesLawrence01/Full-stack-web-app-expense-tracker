@@ -1,5 +1,5 @@
 const form = document.getElementById("form")
-const errorContainer = document.getElementById("errorContainer")c
+const errorContainer = document.getElementById("errorContainer")
 const url = "https://expense-tracker-43zt.onrender.com/"
 
 form.addEventListener("submit", async (e) =>{
