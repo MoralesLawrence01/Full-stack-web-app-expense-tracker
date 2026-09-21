@@ -232,7 +232,7 @@ expenseForm.addEventListener("submit", async (e) => {
     const amount = String(`-${form.get("amount")}`)
     const negativeAmount = Number(amount)
 
-    const addExpense = await fetch("${url}expense", {
+    const addExpense = await fetch(`${url}expense`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -267,7 +267,7 @@ addBalanceForm.addEventListener("submit", async (e) => {
         
     }
 
-    const addExpense = await fetch("${url}addBalance", {
+    const addExpense = await fetch(`${url}addBalance`, {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
