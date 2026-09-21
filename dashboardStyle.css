@@ -1,0 +1,678 @@
+@font-face {
+    font-family: "sans";
+    src: url(fonts/OpeningHoursSans-Regular.woff);
+}
+@font-face {
+    font-family: "lightSans";
+    src: url(fonts/OpenSans-Light.ttf);
+}
+
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+/* side panel */
+aside{
+    margin-left: 10px;
+    position: sticky;
+    width: auto;
+    top: 20px;
+    align-self: flex-start;
+}
+
+#navSidepanel{
+    min-height: 95vh;
+    width: auto;
+    align-items: center;
+    margin-right: 0.5vw;
+    padding-right: 10px;
+}
+
+#headerContainer{
+    display: flex;
+    align-items: center;
+    font-size: 1vh;
+    gap: 1vh;
+    font-family: sans;
+    width: fit-content;
+    color: rgb(255, 255, 255);
+    padding: 0.5vh;
+    background: linear-gradient(180deg, #10b72c 0%, #10b78d 100%);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+#headerContainer h2{
+    margin-left: auto;
+    padding-right: 3px;
+}
+
+#backBtn{
+    background: none;
+    border: none;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#backBtn:hover{
+    background-color: #16daa9;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding-left: 10px;
+}
+
+
+ul li a{
+    display: flex;
+    align-items: center;
+    font-family: sans;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    align-self: center;
+    padding: 10px;
+    border-radius: 20px;
+    width: fit-content;
+    gap: 10px;
+}
+
+ul li a p{
+    margin: 0;
+    padding: 1vh;
+}
+
+
+.active{
+    background: radial-gradient(#10b72c 0%, #10b78d 100%);
+}
+
+/* toggle hide side panel */
+.hide{
+    display: none;
+}
+
+/* side panel */
+
+/* main */
+main{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#input{
+    width: 50%;
+    padding: 10px;
+}
+
+#transactions{
+    width: 50%;
+    padding: 10px;
+}
+
+#balanceContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+#balance{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #5A9E78 ;
+    width: 100%;
+    padding: 5px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+
+#balanceHeader{
+    color: #293d36;
+    font-family: sans;
+    margin: 5px;
+}
+
+#buttonContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#balanceOutput{
+    color: #0f3528;
+    font-family: sans;
+    font-size: 70px;
+    margin: 5px;
+}
+
+#addbalance{
+    height: 40px;
+    background-color: white;
+    border: none;
+    color: black;
+    font-family: sans;
+    border-radius: 5px;
+    padding: 10px;
+    width: 50%;
+
+}
+
+/* add balance popup window */
+.popupWindowContainer{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    background: linear-gradient(90deg, #10b72c5e 0%, #10b78d57 100%);
+    backdrop-filter: blur(4px);
+    padding: 10px;
+    position: fixed;
+    height: 200px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+
+    display: flex;  
+    justify-self: center;
+    align-self: center;
+    z-index: 3000;
+}
+
+#popupCloseBtn{
+    display: flex;
+    background: none;
+    border: none;
+    justify-self: flex-end;
+    margin: 0;
+}
+
+#popupCloseBtn:hover{
+    background-color: #033a27;
+}
+        
+#addBalanceHeader{
+    font-family: sans;  
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 1000;
+}
+
+#popupWindow{
+    width: 100%;
+}
+
+#balanceInput{
+    width: 250px;
+    height: 70px;
+    border: none;
+    background: white;
+    border-radius: 5px;
+    margin:0;
+}
+
+#descriptionInput{
+    width: 250px;
+    height: 70px;
+    border: none;
+    background: white;
+    border-radius: 5px;
+
+}
+
+#descriptionInputLabel{
+    font-family: sans;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 1000;
+}
+
+
+#addBalanceBtn{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+#cnlBalanceBtn{
+    color: rgb(2, 2, 2);
+    border-radius: 5px; 
+    border: solid;
+}
+
+#addBalanceContainer{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 80%;
+}
+#addBalanceForm{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 80%;
+}
+
+#balanceDateContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.close{
+    display: none;
+    opacity: 0;
+    transform: scale(0.9); 
+    transition: 
+    opacity 0.3s ease, 
+    transform 0.3s ease, 
+    display 0.3s ease allow-discrete;
+    position: fixed;
+    height: 200px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;        
+    justify-self: center;
+    align-self: center;
+    z-index: 3000;
+}
+
+#expenseContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: #25282E;
+    border-radius: 10px;
+    margin-top: 10px;
+    color: #E5E7EB;
+    padding: 10px;
+}
+
+#expenseHeader{
+    font-size: 40px;
+    font-family: sans;
+    border-radius: 10px;
+    padding-top: 5px;
+    margin-left: 20px;
+}
+
+#expenseForm{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#expenseInputLabel{
+    font-size: 20px;
+    font-family: lightSans;
+}
+
+#expenseInput{
+    height: 30px;
+    width: 17vw;
+    border-radius: 20px;
+    border: solid #4B5563 1px;
+    background-color: #1E2025;
+    color: white;
+}
+
+#expenseInputMain{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#expenseDescInput{
+    height: 30px;
+    width: 17vw;
+    border-radius: 20px;
+    border: solid #4B5563 1px;
+    background-color: #1E2025;
+    color: white;
+}
+
+#expenseInputContainer{
+    display: flex;
+    gap: 3vw;
+}
+
+#dateInputLabel{
+    font-size: 20px;
+    font-family: lightSans;
+}
+
+#addExpenseBtn{
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: #5A9E78;
+}
+
+#transactions{
+    display: flex;
+    flex-direction: column;
+    background-color: #25282E;
+    height: fit-content;
+    margin-top: 10px;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+#transactionHeader{
+    color: rgb(204, 204, 204);
+    font-family: lightSans;
+    font-size: 12px;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 10px;
+}
+/* table */
+thead{
+    border-bottom: solid white 1px;
+}
+
+th p{
+    color: white;
+    width: 33.3333333333%;
+    text-align: left;
+    font-family: lightSans;
+    font-size: 20px;
+}
+td{
+    width: 33.3333333333%;
+    text-align: left;
+    padding: 10px;
+    font-family: sans;
+    color: white;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#transactions a{
+    width: 100%;
+    text-align: center;
+    font-family: lightSans;
+    color: white;
+    
+}
+
+
+
+.editBtn{
+    background: none;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* edit button popup window */
+
+.editPopupWindowContainer{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    background: linear-gradient(90deg, #10b72c5e 0%, #10b78d57 100%);
+    backdrop-filter: blur(4px);
+    padding: 10px;
+    position: fixed;
+    height: 200px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+
+    display: flex;  
+    justify-self: center;
+    align-self: center;
+    z-index: 3000;
+}
+
+.closeEdit{
+    display: none;
+    opacity: 0;
+    transform: scale(0.9); 
+    transition: 
+    opacity 0.3s ease, 
+    transform 0.3s ease, 
+    display 0.3s ease allow-discrete;
+    position: fixed;
+    height: 200px;
+    width: 400px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;        
+    justify-self: center;
+    align-self: center;
+    z-index: 3000;
+}
+
+#popupWindowEdit{
+    width: 100%;
+}
+#popupCloseBtnEdit{
+    display: flex;
+    background: none;
+    border: none;
+    justify-self: flex-end;
+    margin: 0;
+}
+
+#addBalanceContainerEdit{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 80%;
+}
+#addBalanceFormEdit{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: 80%;
+}
+#addBalanceHeaderEdit{
+    font-family: sans;  
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 1000;
+}
+
+#balanceInputEdit{
+    width: 250px;
+    height: 70px;
+    border: none;
+    background: white;
+    border-radius: 5px;
+    margin:0;
+}
+
+#descriptionInputEdit{
+    width: 250px;
+    height: 70px;
+    border: none;
+    background: white;
+    border-radius: 5px;
+
+}
+
+#descriptionInputLabelEdit{
+    font-family: sans;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 1000;
+}
+
+#balanceDateContainerEdit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#addBalanceBtnEdit{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 7px;
+}
+
+footer{
+    display: flex;
+    position: fixed;
+    background-color: black;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+@media screen and (max-width: 798px){
+    body{
+        margin-top: 5px;
+    }
+    aside{
+    margin-left: 0px;
+    }
+    #balanceHeader{
+        font-size: 20px;
+    }
+    #navSidepanel{
+    margin-right: 0.1vw;
+    padding-right: 0px;
+    }
+    #backBtn{
+    padding: 5px;
+    }   
+    #headerContainer img{
+        height: 15px;
+    }
+    #balanceOutput{
+        color: #0f3528;
+        font-family: sans;
+        font-size: 50px;
+        margin: 0;
+    }
+    #addbalance{
+        height: 30px;
+        color: black;
+        font-family: lightsans;
+        border-radius: 5px;
+        padding: 0;
+        width:40%;
+
+    }
+    ul{
+        padding-left: 0px;
+        gap: 10px;
+    }
+    ul li a img{
+        height: 15px;
+
+    }
+    main{
+    flex-direction: column;
+    }
+    #input{
+    width: 100%;
+    padding: 0;
+    }
+    #expenseHeader{
+        margin: none;
+        font-size: 20px;
+        text-align: start;
+    }
+
+    #expenseInputLabel{
+        font-size: 14px;
+    }
+
+    #expenseForm{
+        margin: 10px;
+    }
+
+    #expenseInput{
+        width: 100%;
+        height: 20px;
+    }
+    #expenseDescInput{
+        height: 20px;
+        width: 100%;
+
+    }
+    #dateInputLabel{
+        font-size: 14px;
+    }
+    #transactions{
+    width: 100%;
+    padding: 10px; 
+    margin-top: 10px;
+    }
+    #balanceContainer{
+        flex-direction: column; 
+    }
+    #balance{
+        width: 100%
+    }
+    #buttonContainer{
+        flex-direction: row;
+    }
+    #transactionHeader{
+        font-size: 9px;
+
+    }
+    .popupWindowContainer{
+    height: 200px;
+    width: 367px;
+    }
+    th p{
+        font-size: 15px ;
+        padding: 0;
+        font-family: lightSans;
+    }
+    td{
+        font-size: 13px;
+        font-family: lightSans;
+    }
+    footer{
+        display: none;
+    }
+}
+
+@starting-style {
+  .editPopupWindowContainer {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

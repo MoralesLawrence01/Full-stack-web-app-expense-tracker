@@ -1,0 +1,71 @@
+body{
+    background: linear-gradient(180deg, #10b72c 0%, #10b78d 100%);
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20vh;
+}
+
+#login{
+    width: 50vh;
+    height: 40vh;
+    background: #1e6d2169;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(30px);
+    display: flex;  
+    flex-direction: column;
+    gap: 2vh;
+}
+
+#form{
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
+    height: 40vh;
+    gap: 2vh;
+}
+
+#login header h1{
+    justify-self: center;
+}
+
+#UsernameInput{
+    height: 3vh;
+    width: 80%;
+    align-self: center;
+    border: none;
+    padding: none;
+}
+
+#PasswordInput{
+    height: 3vh;
+    width: 80%;
+    align-self: center;
+    border: none;
+    padding: none;
+}
+
+#confirmPassword{
+    height: 3vh;
+    width: 80%;
+    align-self: center;
+    border: none;
+    padding: none;
+}
+
+#login button{
+    width: 80%;
+    align-self: center;
+    height: 3vh;
+    background-color: #121f0f;
+    border: none;
+    color: aliceblue;
+}
+
+#login button:hover{
+    background-color: #0a520a;
+}
+#login p{
+    align-self: center;
+}

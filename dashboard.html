@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboardStyle.css">
+</head>
+<body>
+    <aside>
+        <nav id="navSidepanel">
+            <div id="headerContainer">
+                <button id="backBtn"><img src="icons/arrow_back_ios_new_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+                <h2 id="sidePanelHeader">Expense Tracker</h2> 
+            </div>
+            <ul>
+                <li><a href="" class="active"> <img src="icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""> 
+                    <p id="list">Home</p></a></li>
+                <li><a href=""> <img src="icons/dashboard_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p id="list">Dashboard</p></a></li>
+                <li><a href=""> <img src="icons/account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p id="list">Profile</p></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <script src="sidepanel.js"></script>
+    <main>
+        <section id="input">
+            <div id="balanceContainer">
+                <div id="balance">
+                    <h1 id="balanceHeader">Balance:</h1>
+                    <p id="balanceOutput"></p>
+                    <button id="addbalance">Add Balance</button>
+                   
+                </div>
+            </div>
+            
+            <div id="expenseContainer">
+                
+                <h1 id="expenseHeader">Add Expense</h1>
+                <form id="expenseForm" action="">
+                    <div id="expenseInputContainer">
+                        <div id="expenseInputMain">
+                            <label id="expenseInputLabel" for="expenseInput">Amount: </label>
+                            <input type="number" name="amount" id="expenseInput" required>
+                        </div>
+                        <div id="expenseInputMain">
+                            <label id="expenseInputLabel" for="expenseInput">Description: </label>
+                            <input type="text" name="description" id="expenseDescInput">
+                        </div>           
+                    </div>
+                        <p id="dateInputLabel">Date:</p>
+                        <div>   
+                            <input id="todayRdbtn" type="radio" name="dateRdBtn" value="dateToday" required >
+                            <label for="todayRdbtn">today</label>
+                            <input type="radio" name="dateRdBtn" value="chooseDate" required>
+                            <input type="date" name="date">
+                        </div>
+                        
+                        
+                        <button id="addExpenseBtn" name="expenses" type="submit">Add expense</button>
+                    
+                </form>
+            </div>
+
+
+        </section>
+        <!-- add balance Popup -->
+        <div id="modal" class="close">
+            <div id="popupWindow">
+                <nav id="navContainer">
+                        <button id="popupCloseBtn"><img src="icons/close_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+                </nav>
+                <div id="addBalanceContainer">
+                        <form action="" id="addBalanceForm">
+                            <p id="addBalanceHeader">Add Balance</p>
+                            <input id="balanceInput" type="number" placeholder="Amount" name="amount" required>
+                            <label id="descriptionInputLabel" for="descriptionInput">Description:</label>
+                            <input type="text" placeholder="e.g. Allowance" name="description" id="descriptionInput">
+                            <div id="balanceDateContainer">   
+                                <input id="todayRdbtn" type="radio" name="dateRdBtn" value="dateToday" required >
+                                <label for="todayRdbtn">today</label>
+                                <input type="radio" name="dateRdBtn" value="chooseDate" required>
+                                <input type="date" name="date">
+                            </div>
+                            <button id="addBalanceBtn" type="submit">Add</button>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>           
+        </div>
+       <!-- edit Balance popUp -->
+        <div id="modal2" class="closeEdit">
+            <div id="popupWindowEdit">
+                <nav id="navContainerEdit">
+                        <button id="popupCloseBtnEdit"><img src="icons/close_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+                </nav>
+                <div id="addBalanceContainerEdit">
+                        <form action="" id="addBalanceFormEdit">
+                            <p id="addBalanceHeaderEdit">Add Balance</p>
+                            <input id="balanceInputEdit" type="number" placeholder="Amount" name="amount" required>
+                            <label id="descriptionInputLabelEdit" for="descriptionInput">Description:</label>
+                            <input type="text" placeholder="e.g. Allowance" name="description" id="descriptionInputEdit">
+                            <div id="balanceDateContainerEdit">   
+                                <input id="todayRdbtnEdit" type="radio" name="dateRdBtn" value="dateToday" required >
+                                <label for="todayRdbtn">today</label>
+                                <input type="radio" name="dateRdBtn" value="chooseDate" required>
+                                <input type="date" name="date">
+                            </div>
+                            <div id="addBalanceBtnContainerEdit">
+                                <button id="addBalanceBtnEdit" type="submit">Add</button>
+                            
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>           
+        </div>
+          
+        <script src="popup.js"></script>
+
+
+        <section id="transactions">
+            <div id="transactionHeader">
+                <h1>Recent Transactions</h1>
+            </div>
+            <table>
+                <thead>
+                    <tr id="tableHead">
+                        <th><p>Amount</p></th>
+                        <th><p>Description</p></th>
+                        <th><p>Date</p></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+
+                </tbody>
+            </table>
+            <a href="">See More</a>
+        </section>
+
+    </main>
+    <footer><h1>1</h1></footer>
+    <script src="mainScript.js"></script>
+</body>
+</html>

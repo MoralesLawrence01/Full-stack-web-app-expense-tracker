@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="loginStyle.css">
+</head>
+<body>
+   <main>
+        <div id="login">
+            <form id="form" action="">
+                <header><h1>Log in</h1></header>
+                <input name="username" type="text" placeholder="Username" id="UsernameInput" required>
+                <input name="password" type="password" placeholder="Password" id="PasswordInput" required>
+                <div id="rememChkbox"><input type="checkbox" id="rememberMe" > <label for="rememberMe">Remember Me</label></div>
+                <button>Submit</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+            <div id="errorContainer"></div>
+        </div>
+        
+   </main>
+   <script src="index.js"></script>
+</body>
+</html>
