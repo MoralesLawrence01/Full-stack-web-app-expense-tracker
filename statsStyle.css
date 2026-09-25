@@ -492,7 +492,7 @@ table {
         --vf-acid-lo: #c8e72e;
         --vf-acid-deep: #b6d322;
         --vf-ink: #14181a;
-        width:172px;
+        width:144px;
         max-width: 100%;
         border-radius: 22px;
         padding: 11px 11px 11px;
@@ -593,13 +593,13 @@ table {
     }
 
     .voltura-focal__currency {
-        font-size: 1rem;
+        font-size: 0.7rem;
         margin-right: 2px;
         opacity: 0.78;
     }
 
     .voltura-focal__amount {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     .voltura-focal__cta:hover {
         background: #0c1011;
@@ -608,7 +608,7 @@ table {
     #chartContainer{
         border-radius: 10px;
         padding: 5px;
-        width: 87.5vw;
+        width: 83vw;
         margin-top: 5px;
         background-color: #25282E;
     }
@@ -619,13 +619,13 @@ table {
         align-items: center;
     }
     #dateFilter{
-        margin-right: 0;
+        margin-left: 0;
     }
 
     .cir-tabs {
     display: inline-flex;
     align-items: center;
-    gap: 2px;
+    gap: 1px;
     padding: 4px;
     background: var(--color-cloud, #ffffff);
     border: 1px solid var(--color-edge, #e3e8ee);
@@ -650,10 +650,10 @@ table {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 20px;
+    height: 10px;
     padding: 0 18px;
     border-radius: 999px;
-    font-size: 10px;
+    font-size: 7px;
     font-weight: 500;
     color: var(--color-mist, #5b6472);
     cursor: pointer;
@@ -719,3 +719,4 @@ table {
     }
 
 }
+
