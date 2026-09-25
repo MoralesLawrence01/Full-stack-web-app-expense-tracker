@@ -1,7 +1,7 @@
 const userId = localStorage.getItem("userId")
 const barChart = document.getElementById("barChart")
 const filter = document.querySelectorAll(".cir-tabs__r")
-
+const url = "https://expense-tracker-43zt.onrender.com/"
 const balance = document.getElementById("balance")
 const overAllIncome = document.getElementById ("income")
 const overAllExpense = document.getElementById("overAllExpense")
@@ -30,7 +30,7 @@ const renderCard = async () => {
 
     let income = 0
     let expense = 0
-    const userBalance = await fetch("http://localhost:3000/balance",{
+    const userBalance = await fetch(`${url}balance`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
@@ -39,7 +39,7 @@ const renderCard = async () => {
     })
     const res = await userBalance.json()
     balance.textContent = res.balance
-    const userTransaction = await fetch (`http://localhost:3000/renderTransaction/${userId}`)
+    const userTransaction = await fetch (`${url}renderTransaction/${userId}`)
     const response = await userTransaction.json()
     for(let i = 0; i < response.length;i++){
         if (response[i].amount > 0){
@@ -80,7 +80,7 @@ const bar =
 
 
 const renderTransactionsChart = async () => {
-    const transactions = await fetch(`http://localhost:3000/renderTransaction/${userId}`)
+    const transactions = await fetch(`${url}renderTransaction/${userId}`)
     const res = await transactions.json()
     let income = 0
     let expense = 0
@@ -178,7 +178,7 @@ const renderTransactionsChart = async () => {
 
 const renderTransaction = async () =>{
     tableBody.innerHTML = ``
-    const transactions = await fetch(`http://localhost:3000/renderTransaction/${userId}`)
+    const transactions = await fetch(`${url}renderTransaction/${userId}`)
     const res = await transactions.json()   
     for (let i = res.length-1; res.length-13 < i; i--){
         const row = document.createElement("tr")
@@ -234,7 +234,7 @@ const renderTransaction = async () =>{
             }
 
             confirmDltBtn.addEventListener("click", async ()=>{
-                const deleteTran = await fetch(`http://localhost:3000/deleteTransaction/${res[i]._id}/${userId}`, {
+                const deleteTran = await fetch(`${url}${res[i]._id}/${userId}`, {
                 method: "DELETE"
                 })
                 deleteCard.classList.remove("dltShow")
@@ -349,7 +349,7 @@ const renderTransaction = async () =>{
                     date = editForms.get("date")
                 }
 
-                const editTran = await fetch(`http://localhost:3000/editTransaction/${res[i]._id}/${userId}`, {
+                const editTran = await fetch(`${url}${res[i]._id}/${userId}`, {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
