@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="statsStyle.css">
+</head>
+<body>
+    <aside>
+        <nav id="navSidepanel">
+            <div id="headerContainer">
+                <button id="backBtn"><img src="icons/arrow_back_ios_new_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg" alt=""></button>
+                <h2 id="sidePanelHeader">Expense Tracker</h2> 
+            </div>
+            <ul>
+                <li><a href="dashboard.html" class=""> <img src="icons/home_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt=""> 
+                    <p id="list">Home</p></a></li>
+                <li><a href="" class="active"> <img src="icons/dashboard_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p id="list">Dashboard</p></a></li>
+                <li><a href=""> <img src="icons/account_circle_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg" alt="">
+                    <p id="list">Profile</p></a></li>
+            </ul>
+        </nav>
+    </aside>
+    <script src="sidepanel.js"></script>
+    <main>
+        <div id="cardsContainer">
+            <article class="voltura-focal">
+            <header class="voltura-focal__head">
+                <div class="voltura-focal__eyebrow">
+                <span class="voltura-focal__dot"></span>
+                Balance
+                </div>
+                <span class="voltura-focal__chip">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M7 14l5 -5l5 5"></path>
+                </svg>
+                +12.84%
+                </span>
+            </header>
+            <div class="voltura-focal__value">
+                <span class="voltura-focal__currency">$</span>
+                <span class="voltura-focal__amount" id="balance">428,612</span>
+            </div>
+            </article>
+            <article class="voltura-focal">
+            <header class="voltura-focal__head">
+                <div class="voltura-focal__eyebrow">
+                <span class="voltura-focal__dot"></span>
+                Over all income
+                </div>
+                <span class="voltura-focal__chip">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M7 14l5 -5l5 5"></path>
+                </svg>
+                +12.84%
+                </span>
+            </header>
+            <div class="voltura-focal__value">
+                <span class="voltura-focal__currency">$</span>
+                <span class="voltura-focal__amount" id="income">428,612</span>
+            </div>
+            </article>
+            <article class="voltura-focal">
+            <header class="voltura-focal__head">
+                <div class="voltura-focal__eyebrow">
+                <span class="voltura-focal__dot"></span>
+                Over all expenses
+                </div>
+                <span class="voltura-focal__chip">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M7 14l5 -5l5 5"></path>
+                </svg>
+                +12.84%
+                </span>
+            </header>
+            <div class="voltura-focal__value">
+                <span class="voltura-focal__currency">$</span>
+                <span class="voltura-focal__amount" id="overAllExpense">428,612</span>
+            </div>
+            </article>
+            <article class="voltura-focal">
+            <header class="voltura-focal__head">
+                <div class="voltura-focal__eyebrow">
+                <span class="voltura-focal__dot"></span>
+                Savings
+                </div>
+                <span class="voltura-focal__chip">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                >
+                    <path d="M7 14l5 -5l5 5"></path>
+                </svg>
+                +12.84%
+                </span>
+            </header>
+            <div class="voltura-focal__value">
+                <span class="voltura-focal__currency">$</span>
+                <span class="voltura-focal__amount" id="savings">428,612</span>
+            </div>
+            </article>
+        </div>
+        <div id="chartContainer">
+                <div id="chartHeader">
+                        <!-- imported date filter -->
+                         <div id="dateFilter">
+                            <div class="cir-tabs" role="tablist" aria-label="Range">
+                            <input class="cir-tabs__r" type="radio" name="cir-range" id="cir-r-day" />
+                            <label class="cir-tabs__t" for="cir-r-day" role="tab">Day</label>
+
+                            <input class="cir-tabs__r" type="radio" name="cir-range" id="cir-r-week" />
+                            <label class="cir-tabs__t" for="cir-r-week" role="tab">Week</label>
+
+                            <input class="cir-tabs__r" type="radio" name="cir-range" id="cir-r-month" />
+                            <label class="cir-tabs__t" for="cir-r-month" role="tab">Month</label>
+
+                            <input class="cir-tabs__r" type="radio" name="cir-range" id="cir-r-year" />
+                            <label class="cir-tabs__t" for="cir-r-year" role="tab">Year</label>
+
+                            <input class="cir-tabs__r" type="radio" name="cir-range" id="cir-r-all" checked=""/>
+                            <label class="cir-tabs__t" for="cir-r-all" role="tab">All</label>
+                            
+                        </div>
+                    </div>
+                </div>
+                <canvas id="barChart"></canvas>
+                
+                
+        </div>
+        <div id="tableContainer">
+            <table id="table">
+                <thead>
+                    <tr id="tableHead">
+                        <th><p>Amount</p></th>
+                        <th><p>Description</p></th>
+                        <th><p>Date</p></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    
+                </tbody>
+            </table>
+        </div>
+        <div id="deleteCard" class="dltHide">
+            <div class="card">
+            <div class="card-content">
+                <p class="card-heading">Delete file?</p>
+                <p class="card-description">Are you want to delete this transaction?</p>
+            </div>
+            <div class="card-button-wrapper" id="dltPopupBtnContainer">
+                <button class="card-button">Delete</button>
+            </div>
+            <button id="dltExtBtn" class="exit-button">
+                <svg height="20px" viewBox="0 0 384 512">
+                <path
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
+                ></path>
+                </svg>
+            </button>
+            </div>
+        </div>
+        
+        
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="stats.js"></script>
+</body>
+</html>
