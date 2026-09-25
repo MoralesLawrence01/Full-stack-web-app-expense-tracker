@@ -13,6 +13,7 @@ body{
     flex-direction: row;
     min-height: 100vh;
 }
+
 /* side panel */
 aside{
     margin-left: 10px;
@@ -104,8 +105,7 @@ ul li a p{
 
 /* main */
 main{
-    
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
 }
@@ -167,6 +167,8 @@ main{
     width: 50%;
 
 }
+
+
 
 /* add balance popup window */
 .popupWindowContainer{
@@ -565,6 +567,10 @@ footer{
     aside{
     margin-left: 0px;
     }
+    #balanceContainer{
+        width: 95%;
+    }
+
     #balanceHeader{
         font-size: 20px;
     }
@@ -604,6 +610,9 @@ footer{
     main{
     flex-direction: column;
     }
+    #expenseContainer{
+        width: 93.5%;
+    }
     #input{
     width: 100%;
     padding: 0;
@@ -635,7 +644,7 @@ footer{
         font-size: 14px;
     }
     #transactions{
-    width: 100%;
+    width: 93.5%;
     padding: 10px; 
     margin-top: 10px;
     }
@@ -676,3 +685,6 @@ footer{
     transform: scale(0.9);
   }
 }
+
+
+
