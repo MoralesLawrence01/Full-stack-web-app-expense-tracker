@@ -5,7 +5,9 @@ const tableBody = document.getElementById("tableBody")
 const modal2 = document.getElementById("modal2")
 const addBalanceContainerEdit = document.getElementById("addBalanceContainerEdit")
 const popupCloseBtnEdit = document.getElementById("popupCloseBtnEdit")
+const savingsOutput = document.getElementById("savingsOutput")
 const url = "https://expense-tracker-43zt.onrender.com/"
+
 
 const userId = localStorage.getItem("userId")
 
@@ -33,8 +35,15 @@ const userBalance = async () => {
     
 }
 
+const getSavings = async () => {
+    const savings = await fetch(`${url}getSavings/${userId}`)
+    const res = await savings.json()
+    savingsOutput.textContent = res.savings
+}   
+getSavings()
+
 const renderTransaction = async () =>{
-    tableBody.innerHTML = ""
+    tableBody.innerHTML = ``
     const transactions = await fetch(`${url}renderTransaction/${userId}`)
     const res = await transactions.json()   
     for (let i = res.length-1; res.length-13 < i; i--){
@@ -194,7 +203,6 @@ const renderTransaction = async () =>{
             })
 
         })
-
         row.addEventListener("mouseenter", () => {
             tdDate.appendChild(editBtn)
             tdDate.appendChild(dltBtn)
@@ -208,6 +216,7 @@ const renderTransaction = async () =>{
         })
 
         tableBody.appendChild(row)
+
     }
 }
 renderTransaction()
@@ -279,4 +288,109 @@ addBalanceForm.addEventListener("submit", async (e) => {
     })
     userBalance()  
     renderTransaction()     
+})
+
+const addsavingsbtn = document.getElementById("addsavings")
+const savingsModal = document.getElementById("savingsModal")
+const savingsForm = document.getElementById("savingsForm")
+const invalidSavingsContainer = document.getElementById("invalidSavingsContainer")
+const invalidSavingsBtn = document.getElementById("invalidSavingsBtn")
+const savingsAmount = document.getElementById("savingsAmount")
+
+
+addsavingsbtn.addEventListener("click", () =>{
+    if(savingsModal.classList.contains("close")){
+        savingsModal.classList.remove("close")
+        savingsModal.classList.add("popupSavingsContainer")
+    }
+    else if(savingsModal.classList.contains("popupSavingsContainer")){
+        savingsModal.classList.remove("popupSavingsContainer")
+        savingsModal.classList.add("close")
+    }
+})
+
+savingsForm.addEventListener("submit", async (e) => {
+
+    e.preventDefault()
+    const savings = new FormData(savingsForm)
+
+    const addSavings = await fetch(`${url}savings/${userId}`, {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            savings: savings.get("savingsAmount")
+        })
+    })
+    const res = await addSavings.json()
+    if (res.ok === true){
+        userBalance()
+        getSavings()
+        savingsAmount.value = ""
+        savingsModal.classList.remove("popupSavingsContainer")
+        savingsModal.classList.add("close")
+    }else{
+        savingsModal.classList.remove("popupSavingsContainer")
+        savingsModal.classList.add("close")
+        invalidSavingsContainer.classList.remove("close")
+        invalidSavingsContainer.classList.add("popupInvalidSavingContainer")
+        savingsAmount.value = ""
+    }
+    
+
+})
+
+invalidSavingsBtn.addEventListener("click", () => {
+    invalidSavingsContainer.classList.remove("popupInvalidSavingContainer")
+    invalidSavingsContainer.classList.add("close")
+})
+
+const withdrawSavings = document.getElementById("withdrawSavings")
+const withdrawModal = document.getElementById("withdrawModal")
+const withdrawForm = document.getElementById("withdrawForm")
+const invalidWithdrawContainer = document.getElementById("invalidWithdrawContainer")
+const invalidWithdrawBtn = document.getElementById("invalidWithdrawBtn")
+const withdrawAmount = document.getElementById("withdrawAmount")
+
+withdrawSavings.addEventListener("click", () =>{
+    if(withdrawModal.classList.contains("close")){
+        withdrawModal.classList.remove("close")
+        withdrawModal.classList.add("popupSavingsContainer")
+    }
+    else if(withdrawModal.classList.contains("popupSavingsContainer")){
+        withdrawModal.classList.remove("popupSavingsContainer")
+        withdrawModal.classList.add("close")
+    }
+})
+
+withdrawForm.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    const withdraw = new FormData(withdrawForm)
+    
+    const addWithdraw = await fetch(`${url}withdrawSavings/${userId}`,{
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            amount: withdraw.get("withdrawAmount")
+        })
+    })
+    const res = await addWithdraw.json()
+    if(res.ok === true){
+        userBalance()
+        getSavings()
+        withdrawModal.classList.remove("popupSavingsContainer")
+        withdrawModal.classList.add("close")
+        withdrawAmount.value = ""
+    }else{
+        withdrawModal.classList.remove("popupSavingsContainer")
+        withdrawModal.classList.add("close")
+        invalidWithdrawContainer.classList.remove("close")
+        invalidWithdrawContainer.classList.add("popupInvalidWithdrawContainer")
+        withdrawAmount.value = ""
+    }
+
+})
+
+invalidWithdrawBtn.addEventListener("click", () => {
+    invalidWithdrawContainer.classList.remove("popupInvalidWithdrawContainer")
+    invalidWithdrawContainer.classList.add("close")
 })
