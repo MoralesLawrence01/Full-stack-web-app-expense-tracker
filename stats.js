@@ -180,7 +180,7 @@ const renderTransaction = async () =>{
     tableBody.innerHTML = ``
     const transactions = await fetch(`${url}renderTransaction/${userId}`)
     const res = await transactions.json()   
-    for (let i = res.length-1; res.length-13 < i; i--){
+    for (let i = res.length-1; 0 <= i; i--){
         const row = document.createElement("tr")
 
         const tdAmount = document.createElement("td")
