@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="dashboardStyle.css">
 </head>
-<body>
+<body class="container">
     <aside>
         <nav id="navSidepanel">
             <div id="headerContainer">
@@ -31,6 +31,15 @@
                     <h1 id="balanceHeader">Balance:</h1>
                     <p id="balanceOutput"></p>
                     <button id="addbalance">Add Balance</button>
+                   
+                </div>
+            </div>
+            <div id="savingsContainer">
+                <div id="savings">
+                    <h1 id="savingsHeader">Savings:</h1>
+                    <p id="savingsOutput"></p>
+                    <button id="addsavings">Add Savings</button>
+                    <button id="withdrawSavings">Withdraw Savings</button>
                    
                 </div>
             </div>
@@ -65,6 +74,108 @@
 
 
         </section>
+        <!-- invalid withdraw input popup -->
+         <div id="invalidWithdrawContainer" class="close">
+            <div class="card">
+            <div class="header">
+                <div class="image">
+                <svg
+                    aria-hidden="true"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+                    <path
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    ></path>
+                </svg>
+                </div>
+                <div class="content">
+                <span class="title">Withdraw Failed</span>
+                <p class="message">
+                    insufficient balance
+                </p>
+                </div>
+                <div class="actions">
+                <button id="invalidWithdrawBtn" class="desactivate" type="button">Confirm</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- invalid savings input popup -->
+        <div id="invalidSavingsContainer" class="close">
+            <div class="card">
+            <div class="header">
+                <div class="image">
+                <svg
+                    aria-hidden="true"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+                    <path
+                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    ></path>
+                </svg>
+                </div>
+                <div class="content">
+                <span class="title">Savings not added</span>
+                <p class="message">
+                    insufficient balance
+                </p>
+                </div>
+                <div class="actions">
+                <button id="invalidSavingsBtn" class="desactivate" type="button">Confirm</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- add savings popup -->
+         <div id="savingsModal" class="close">
+            <div class="form-container">
+                <div class="logo-container">
+                    Add Funds to Savings
+                </div>
+
+                <form class="form" id="savingsForm">
+                    <div class="form-group">
+                    <label for="email">Amount</label>
+                    <input type="number" id="savingsAmount" name="savingsAmount" placeholder="Enter amount" required="">
+                    </div>
+
+                    <button class="form-submit-btn" type="submit">Confirm</button>
+                </form>
+
+
+            </div>
+         </div>
+         <!-- withdraw savings modal -->
+         <div id="withdrawModal" class="close">
+            <div class="form-container">
+                <div class="logo-container">
+                    Withdraw Savings
+                </div>
+
+                <form class="form" id="withdrawForm">
+                    <div class="form-group">
+                    <label for="email">Amount</label>
+                    <input type="number" id="withdrawAmount" name="withdrawAmount" placeholder="Enter amount" required="">
+                    </div>
+
+                    <button class="form-submit-btn" type="submit">Confirm</button>
+                </form>
+
+
+            </div>
+         </div>
+
         <!-- add balance Popup -->
         <div id="modal" class="close">
             <div id="popupWindow">
