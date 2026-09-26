@@ -5,7 +5,7 @@ const url = "https://expense-tracker-43zt.onrender.com/"
 const balance = document.getElementById("balance")
 const overAllIncome = document.getElementById ("income")
 const overAllExpense = document.getElementById("overAllExpense")
-const savings = document.getElementById("savings")
+const saving = document.getElementById("savings")
 
 const today = new Date()
 
@@ -23,10 +23,7 @@ const deleteCard = document.getElementById("deleteCard")
 const tableBody =document.getElementById("tableBody")
 
 const renderCard = async () => {
-    balance.innerHTML = ""
-    overAllIncome.innerHTML = ""
-    overAllExpense.innerHTML = ""
-    savings.innerHTML = 0
+
 
     let income = 0
     let expense = 0
@@ -49,8 +46,13 @@ const renderCard = async () => {
             expense += Math.abs(response[i].amount)
         }
     }
+    const savings = await fetch(`${url}getSavings/${userId}`)
+    const userSavings = await savings.json()
+
+
     overAllIncome.textContent = income
     overAllExpense.textContent = expense
+    saving.textContent = userSavings.savings
 }
 
 renderCard()
@@ -234,7 +236,7 @@ const renderTransaction = async () =>{
             }
 
             confirmDltBtn.addEventListener("click", async ()=>{
-                const deleteTran = await fetch(`${url}${res[i]._id}/${userId}`, {
+                const deleteTran = await fetch(`${url}deleteTransaction/${res[i]._id}/${userId}`, {
                 method: "DELETE"
                 })
                 deleteCard.classList.remove("dltShow")
@@ -349,7 +351,7 @@ const renderTransaction = async () =>{
                     date = editForms.get("date")
                 }
 
-                const editTran = await fetch(`${url}${res[i]._id}/${userId}`, {
+                const editTran = await fetch(`${url}editTransaction/${res[i]._id}/${userId}`, {
                     method: "PUT",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({
