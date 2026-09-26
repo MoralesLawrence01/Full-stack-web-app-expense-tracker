@@ -123,6 +123,58 @@ app.post("/addBalance", async (req,res) =>{
         expenseId: newBalance._id
     })
 })
+//adding savings
+app.post("/savings/:id", async (req, res) =>{
+    const currUser = await user.findOne({
+        _id: req.params.id
+    })
+    const result = currUser.balance - Number(req.body.savings)
+
+    if (result >= 0){
+        currUser.balance -= Number(req.body.savings)
+        currUser.savings += Number(req.body.savings)
+        await currUser.save()
+        res.json({
+            amount: currUser.savings,
+            ok: true
+        })
+    }
+    else{
+        res.json({
+            ok: false
+        })
+    }
+    
+
+})
+
+app.post("/withdrawSavings/:id", async (req,res) => {
+    const currUser = await user.findOne({_id: req.params.id})
+
+    const result = currUser.savings - Number(req.body.amount)
+
+    if(result >= 0){
+        currUser.savings = result
+        currUser.balance += Number(req.body.amount)
+        await currUser.save()
+        res.json({
+            amount: currUser.savings,
+            ok: true            
+        })
+    }else{
+        res.json({
+            ok: false
+        })
+    }
+})
+
+app.get("/getSavings/:id", async (req, res) => {
+    const currUser = await user.findOne({_id: req.params.id})
+    res.json({
+        savings: currUser.savings
+    })
+})
+
 
 //for updating balance
 app.post("/balance", async (req,res)=>{
