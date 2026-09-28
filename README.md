@@ -1,7 +1,7 @@
 # Expense Tracker
 
 ## About
-Short description of the project.
+The primary objective of this project was to learn and practice backend development fundamentals by building a functional system from the ground up. Through this project, I focused on learning how the frontend communicates with a backend, how APIs handle requests and responses, how data is stored and managed using MongoDB and Mongoose, and how different parts of a full-stack application work together.
 
 ## Features
 - User registration and login
