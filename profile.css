@@ -1,0 +1,279 @@
+@font-face {
+    font-family: "sans";
+    src: url(fonts/OpeningHoursSans-Regular.woff);
+}
+@font-face {
+    font-family: "lightSans";
+    src: url(fonts/OpenSans-Light.ttf);
+}
+
+body{
+    overflow-wrap: wrap;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+}
+
+/* side panel */
+aside{
+    margin-left: 10px;
+    position: sticky;
+    width: auto;
+    top: 20px;
+    align-self: flex-start;
+}
+
+#navSidepanel{
+    min-height: 95vh;
+    width: auto;
+    align-items: center;
+    margin-right: 0.5vw;
+    padding-right: 10px;
+}
+
+#headerContainer{
+    display: flex;
+    align-items: center;
+    font-size: 1vh;
+    gap: 1vh;
+    font-family: sans;
+    width: fit-content;
+    color: rgb(255, 255, 255);
+    padding: 0.5vh;
+    background: linear-gradient(180deg, #10b72c 0%, #10b78d 100%);
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+#headerContainer h2{
+    margin-left: auto;
+    padding-right: 3px;
+}
+
+#backBtn{
+    background: none;
+    border: none;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#backBtn:hover{
+    background-color: #16daa9;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding-left: 10px;
+}
+
+
+ul li a{
+    display: flex;
+    align-items: center;
+    font-family: sans;
+    font-weight: 500;
+    text-decoration: none;
+    color: black;
+    align-self: center;
+    padding: 10px;
+    border-radius: 20px;
+    width: fit-content;
+    gap: 10px;
+}
+
+ul li a p{
+    margin: 0;
+    padding: 1vh;
+}
+
+
+.active{
+    background: radial-gradient(#10b72c 0%, #10b78d 100%);
+}
+
+/* toggle hide side panel */
+.hide{
+    display: none;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card {
+  --main-color: #fff;
+  --submain-color: #ccc;
+  --bg-color: #000;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  position: relative;
+  width: 300px;
+  height: 384px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background: var(--bg-color);
+}
+
+.card__img {
+  height: 192px;
+  width: 100%;
+}
+
+.card__img svg {
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+}
+
+.card__avatar {
+  position: absolute;
+  width: 114px;
+  height: 114px;
+  background: var(--bg-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: calc(50% - 57px);
+}
+
+.card__avatar svg {
+  width: 100px;
+  height: 100px;
+}
+
+.card__title {
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-color);
+}
+
+.card__subtitle {
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--submain-color);
+}
+
+.card__btn {
+  margin-top: 15px;
+  width: 76px;
+  height: 31px;
+  border: 2px solid var(--main-color);
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--main-color);
+  background: var(--bg-color);
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.card__btn-solid {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+.card__btn:hover {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+.card__btn-solid:hover {
+  background: var(--bg-color);
+  color: var(--main-color);
+}
+
+.colorful-form {
+  margin-top: 10px;  
+  width: 400px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  font-family: sans;
+}
+
+#subText{
+    color: gray;
+    font-size: smaller;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-input {
+  width: 90%;
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  color: #333;
+  border-radius: 5px;
+}
+
+textarea.form-input {
+  height: 100px;
+}
+
+.form-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f69;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: #ff5f59;
+}
+
+
+@media screen and (max-width: 798px){
+    body{
+        margin-top: 5px;
+    }
+    aside{
+    margin-left: 0px;
+    }
+    #navSidepanel{
+    margin-right: 0.1vw;
+    padding-right: 0px;
+    }
+    #backBtn{
+    padding: 5px;
+    }   
+    #headerContainer img{
+        height: 15px;
+    }
+        ul{
+        padding-left: 0px;
+        gap: 10px;
+    }
+    ul li a img{
+        height: 15px;
+
+    }
+}
