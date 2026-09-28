@@ -251,4 +251,11 @@ app.put("/editTransaction/:tranId/:userId", async (req,res) => {
     })
 })
 
+app.get("/name/:id" , async (req,res) => {
+    const currUser = await user.findOne({_id: req.params.id})
+    res.json({
+        name: currUser.userName
+    })
+})
+
 app.listen(3000)
